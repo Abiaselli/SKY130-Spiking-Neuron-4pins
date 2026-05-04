@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+A compact analog spiking neuron
 
 ## How to test
 
-Explain how to use your project
+Tune 3 external controls (IREFA, IREFB, BIASC, and VCORE) and generate firning patterns from Vout.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Five adjustable analog sources (voltage or current) for the bias and input pins, an oscilloscope or DAQ for capturing Vout, and a clean analog supply with local decoupling.
