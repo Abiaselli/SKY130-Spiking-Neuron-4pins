@@ -842,7 +842,7 @@ Xsky130_fd_pr__res_xhigh_po_0p35_MJ6B8Z_0 VSS VSS VSS VSS VSS VSS VSS VSS VSS VS
 + VSS VSS VSS VSS VSS VSS VSS VSS VSS VSS VSS VSS VSS VSS sky130_fd_pr__res_xhigh_po_0p35_MJ6B8Z
 .ends
 
-.subckt neuron_top VDD BIASC VOUT IREFB IREFA VSS
+.subckt neuron_top VSS VDD BIASC VOUT IREFB IREFA
 Xres1_2meg_0 res1_2meg_0/RT VSS res1_2meg
 Xv_u_block_0 vdd_DIV_0/OUT vd_DIV_0/OUT BIASC IREFA ref_DIV_1/OUT ref_DIV_0/OUT v_u_block_0/U
 + VDD IREFA v_u_block_0/V IREFB VSS v_u_block
@@ -859,6 +859,6 @@ Xvd_DIV_0 VDD vd_DIV_0/OUT VSS vd_DIV
 + uio_oe[1] uio_oe[2] uio_oe[3] uio_oe[4] uio_oe[5] uio_oe[6] uio_oe[7] uio_out[0]
 + uio_out[1] uio_out[2] uio_out[3] uio_out[4] uio_out[5] uio_out[6] uio_out[7] uo_out[0]
 + uo_out[1] uo_out[2] uo_out[3] uo_out[4] uo_out[5] uo_out[6] uo_out[7] VDPWR VGND
-Xneuron_top_0 VDPWR ua[3] ua[1] ua[0] ua[2] VGND neuron_top
+Xneuron_top_0 VGND VDPWR ua[3] ua[1] ua[0] ua[2] neuron_top
 .ends
 
