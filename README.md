@@ -1,36 +1,44 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
+# SKY130 Spiking Neuron (4 pins)
 
-# Tiny Tapeout Analog Project Template
+CMOS realization of an Izhikevich-style spiking neuron.
 
-- [Read the documentation for project](docs/info.md)
+This is a Tiny Tapeout analog project in one `1x2` tile.
+It uses the SKY130 1.8 V devices.
+The circuit is fully analog.
+The digital pins and clock are not used.
 
-## What is Tiny Tapeout?
+![Layout](img/layput.png)
 
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
+## Circuit
 
-To learn more and get started, visit https://tinytapeout.com.
+The neuron has internal `V` and `U` state nodes.
+They act like the membrane voltage and recovery variable in the Izhikevich model.
 
-## Analog projects
+CMOS OTAs, current mirrors, resistors, and MIM capacitors create the analog dynamics.
+The large repeated layout blocks include matched transistor arrays, resistor structures, and capacitors.
+An output buffer drives the observable spike waveform at `VOUT`.
 
-For specifications and instructions, see the [analog specs page](https://tinytapeout.com/specs/analog/).
+## Analog Pins
 
-## Enable GitHub actions to build the results page
+| Pin | Name | Use |
+| --- | --- | --- |
+| `ua[0]` | `IREFB` | Bias for the `V` dynamics |
+| `ua[1]` | `VOUT` | Spike output voltage |
+| `ua[2]` | `IREFA` | Bias for the `U` dynamics |
+| `ua[3]` | `BIASC` | Common control bias |
 
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+## How To Use
 
-## Resources
+Power the chip from `VDPWR = 1.8 V`.
+Apply quiet analog bias voltages to `IREFB`, `IREFA`, and `BIASC`.
+Observe `VOUT` with an oscilloscope or DAQ.
 
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
+Changing the three bias pins changes the spike shape, rate, and stability.
+The circuit can show spike-like relaxation oscillation.
+It is an analog CMOS implementation inspired by the Izhikevich neuron, not a digital simulator of the equation.
 
-## What next?
+## Project Info
 
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)
-  - Bluesky [@tinytapeout.com](https://bsky.app/profile/tinytapeout.com)
+Top module: `tt_um_izh_neuron`
+
+Authors: Abdulkarim Alorf, Tomohisa Kawakami
